@@ -6,8 +6,8 @@
   "homepage": "https://oraycle.github.io/fox-game",
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel src/index.html",
-    "deploy": "gh-pages -d dist",
+    "build": "parcel build src/index.html --out-dir docs --public-url ./",
+    "deploy": "npm run build && gh-pages -d docs",
     "test": "jest"
   },
   "keywords": [],
