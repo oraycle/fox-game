@@ -101,6 +101,7 @@ const gameState = {
   },
   endCelebrating() {
     this.timeToEndCelebrating = -1;
+    this.poopTime = getNextPoopTime(this.clock);
     this.current = "IDLING";
     this.determineFoxState();
     togglePoopBag(false);
@@ -141,6 +142,7 @@ const gameState = {
     }
   },
   changeWeather() {
+    console.log("current = " + this.current);
     this.scene = this.scene + (1 % SCENES.length);
     modScene(SCENES[this.scene]);
     this.determineFoxState();
@@ -162,7 +164,6 @@ const gameState = {
     }
     this.current = "FEEDING";
     this.dieTime = -1;
-    this.poopTime = getNextPoopTime(this.clock);
     modFox("eating");
     this.timeToStartCelebrating = this.clock + 2;
   },
